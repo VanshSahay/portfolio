@@ -1,6 +1,7 @@
 /*
  *  Writing panel: loads manifest from GitHub, renders articles via marked.js.
- *  Prefetches on hover, caches responses. Instant after first load.
+ *  Supports deep links: vanshs.eth.limo/#/writing/hello-world
+ *  Prefetches on hover, caches responses.
  */
 
 (function () {
@@ -14,19 +15,64 @@
   var GITHUB_RAW = "https://raw.githubusercontent.com/VanshSahay/portfolio/main/writing";
   var articles = [];
   var currentSlug = null;
-  var cache = {};       // slug → rendered HTML
-  var prefetching = {};  // slug → pending fetch promise
+  var cache = {};
+  var prefetching = {};
 
-  // Load manifest
+  // Load manifest, then check for deep link
   fetch(GITHUB_RAW + "/manifest.json")
     .then(function (r) { return r.json(); })
     .then(function (data) {
       articles = data;
       renderList();
+      checkDeepLink();
     })
     .catch(function () {
       listEl.innerHTML = '<p style="color:var(--muted);font-size:0.85rem;">No articles yet.</p>';
     });
+
+  function checkDeepLink() {
+    var match = window.location.hash.match(/^#\/writing\/(.+)/);
+    if (match) {
+      var slug = match[1];
+      if (articles.some(function (a) { return a.slug === slug; })) {
+        // Switch to writing tab
+        switchToWritingTab();
+        loadArticle(slug);
+      }
+    }
+  }
+
+  // Listen for hash changes (back/forward browser buttons)
+  window.addEventListener("hashchange", function () {
+    var match = window.location.hash.match(/^#\/writing\/(.+)/);
+    if (match) {
+      var slug = match[1];
+      if (articles.some(function (a) { return a.slug === slug; })) {
+        switchToWritingTab();
+        loadArticle(slug);
+      }
+    } else if (window.location.hash === "" && currentSlug) {
+      // Back to list
+      showList();
+    }
+  });
+
+  function switchToWritingTab() {
+    var tabs = document.querySelectorAll(".tab");
+    var panels = document.querySelectorAll(".tab-panel");
+    tabs.forEach(function (t) { t.classList.remove("active"); });
+    panels.forEach(function (p) {
+      p.classList.remove("active");
+      p.style.display = "none";
+    });
+    var writingTab = document.querySelector('.tab[data-tab="writing"]');
+    var writingPanel = document.getElementById("panel-writing");
+    if (writingTab) writingTab.classList.add("active");
+    if (writingPanel) {
+      writingPanel.classList.add("active");
+      writingPanel.style.display = "block";
+    }
+  }
 
   function renderList() {
     if (!articles.length) {
@@ -43,10 +89,7 @@
         '<span class="writing-date">' + escapeHtml(a.date) + '</span>' +
         '<span class="writing-desc">' + escapeHtml(a.description) + '</span>';
 
-      // Click → show article
       div.addEventListener("click", function () { loadArticle(a.slug); });
-
-      // Hover → prefetch
       div.addEventListener("mouseenter", function () { prefetch(a.slug); });
       div.addEventListener("touchstart", function () { prefetch(a.slug); }, { passive: true });
 
@@ -54,7 +97,6 @@
     });
   }
 
-  // Prefetch on hover so click feels instant
   function prefetch(slug) {
     if (cache[slug] || prefetching[slug]) return;
 
@@ -73,21 +115,21 @@
   }
 
   function loadArticle(slug) {
-    if (currentSlug === slug) return;
+    if (currentSlug === slug && listEl.style.display === "none") return;
 
-    // Show loading state
+    // Update URL hash for sharing
+    window.location.hash = "#/writing/" + slug;
+
     listEl.style.display = "none";
     articleEl.style.display = "block";
     contentEl.innerHTML = '<p style="color:var(--muted);">Loading…</p>';
 
-    // Already cached? Instant.
     if (cache[slug]) {
       contentEl.innerHTML = cache[slug];
       currentSlug = slug;
       return;
     }
 
-    // Already prefetching? Wait for it.
     if (prefetching[slug]) {
       prefetching[slug].then(function () {
         if (cache[slug]) {
@@ -98,7 +140,6 @@
       return;
     }
 
-    // Cold load
     fetch(GITHUB_RAW + "/" + slug + ".md")
       .then(function (r) {
         if (!r.ok) throw new Error("Not found");
@@ -115,11 +156,16 @@
       });
   }
 
-  backBtn.addEventListener("click", function () {
+  function showList() {
     currentSlug = null;
     articleEl.style.display = "none";
     listEl.style.display = "";
     contentEl.innerHTML = "";
+  }
+
+  backBtn.addEventListener("click", function () {
+    window.location.hash = "";
+    showList();
   });
 
   function escapeHtml(str) {
