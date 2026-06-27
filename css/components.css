@@ -1,0 +1,557 @@
+/*
+ *  Components: hero, tabs, cards, writing, footer.
+ */
+
+/* ─── Hero ─────────────────────────────────── */
+.hero h1 {
+  font-size: 3.6rem;
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.hero .title {
+  font-size: 1.05rem;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.hero .title a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.18em;
+}
+
+.hero .title a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+.hero .subtitle {
+  font-size: 1.05rem;
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.cursor {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85em;
+  color: var(--accent);
+  animation: blink 1.2s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* ─── Tab Navigation ───────────────────────── */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+  letter-spacing: 0.02em;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab.active {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.5em;
+  text-decoration-thickness: 1px;
+}
+
+.tab-sep {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  color: var(--border);
+  user-select: none;
+}
+
+/* ─── About ────────────────────────────────── */
+.about p {
+  color: var(--text);
+  margin-bottom: 0.65rem;
+  max-width: 56ch;
+}
+
+.about p a,
+.currently p a {
+  color: var(--text);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 0.18em;
+}
+
+.about p a:hover,
+.currently p a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
+/* ─── Currently ────────────────────────────── */
+.currently p {
+  color: var(--text);
+  max-width: 56ch;
+  margin-bottom: 0.5rem;
+}
+
+.currently strong {
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* ─── Annotated terms ──────────────────────── */
+.annotated {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-style: dotted;
+  cursor: help;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.annotated:hover,
+.annotated.active {
+  color: var(--accent);
+}
+
+/* ─── Margin note ──────────────────────────── */
+.margin-note {
+  position: fixed;
+  right: 2rem;
+  width: 240px;
+  padding: 0.85rem 1rem;
+  background: var(--note-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--muted);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(44, 40, 37, 0.06);
+}
+
+.margin-note.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.margin-note::before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  top: 50%;
+  width: 10px;
+  height: 1px;
+  background: var(--border);
+}
+
+/* ─── Achievements ─────────────────────────── */
+.achieve-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.achieve-card {
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.achieve-card:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.achieve-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.3rem;
+}
+
+.achieve-name {
+  font-size: 0.95rem;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.achieve-sponsor {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-align: right;
+  line-height: 1.4;
+}
+
+.achieve-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 54ch;
+}
+
+.achieve-desc strong {
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ─── Contributions ────────────────────────── */
+.contrib-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contrib-card {
+  padding: 1.2rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.contrib-card:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.contrib-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 0.35rem;
+}
+
+.contrib-name {
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.contrib-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.55;
+  max-width: 52ch;
+  margin-bottom: 0.4rem;
+}
+
+.contrib-link {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.contrib-link:hover {
+  color: var(--accent);
+}
+
+/* ─── Projects ─────────────────────────────── */
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card {
+  border-top: 1px solid var(--border);
+}
+
+.project-card:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+
+.project-summary {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.1rem 0.6rem;
+  align-items: baseline;
+  padding: 1.05rem 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.project-summary::-webkit-details-marker {
+  display: none;
+}
+
+.project-name {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.project-desc {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+  padding-right: 0.5rem;
+}
+
+.expand-hint {
+  grid-column: 3;
+  grid-row: 1;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8rem;
+  color: var(--muted);
+  transition: transform 0.25s ease;
+  width: 18px;
+  text-align: center;
+}
+
+.project-card[open] .expand-hint {
+  transform: rotate(45deg);
+}
+
+.project-detail {
+  padding: 0 0 1.2rem 0;
+}
+
+.project-detail p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+  max-width: 54ch;
+  margin-bottom: 0.6rem;
+}
+
+.project-link {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.project-link:hover {
+  color: var(--accent);
+}
+
+/* Mobile project layout */
+@media (max-width: 520px) {
+  .project-summary {
+    grid-template-columns: 1fr auto;
+  }
+
+  .expand-hint {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .project-desc {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+/* ─── Writing ──────────────────────────────── */
+.writing-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.writing-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  padding: 1.05rem 0;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.writing-item:last-child {
+  border-bottom: 1px solid var(--border);
+}
+
+.writing-item:hover {
+  background: var(--surface);
+}
+
+.writing-item .writing-title {
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.writing-item .writing-date {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.65rem;
+  color: var(--accent);
+  margin-top: 0.15rem;
+}
+
+.writing-item .writing-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 52ch;
+}
+
+.writing-back {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: color 0.2s ease;
+}
+
+.writing-back:hover {
+  color: var(--accent);
+}
+
+/* Rendered article content */
+.article-content {
+  max-width: 56ch;
+}
+
+.article-content h1 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.article-content h2 {
+  font-size: 1.05rem;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--text);
+  margin: 2rem 0 0.5rem 0;
+}
+
+.article-content h3 {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text);
+  margin: 1.5rem 0 0.4rem 0;
+}
+
+.article-content p {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.article-content a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.article-content ul,
+.article-content ol {
+  margin: 0.5rem 0 0.75rem 1.25rem;
+}
+
+.article-content li {
+  font-size: 0.88rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
+.article-content code {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.78rem;
+  background: var(--surface);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  border: 1px solid var(--border);
+}
+
+.article-content pre {
+  font-family: "JetBrains Mono", "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  background: var(--surface);
+  padding: 1rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow-x: auto;
+  margin: 0.75rem 0 1rem 0;
+  line-height: 1.55;
+}
+
+.article-content pre code {
+  background: none;
+  padding: 0;
+  border: none;
+  font-size: inherit;
+}
+
+.article-content blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 1rem;
+  margin: 0.75rem 0 1rem 0;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.article-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.article-content strong {
+  font-weight: 400;
+  color: var(--text);
+}
+
+.article-content em {
+  font-style: italic;
+}
+
+/* ─── Connect ──────────────────────────────── */
+.links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.links a {
+  font-size: 0.95rem;
+}
+
+/* ─── Footer ───────────────────────────────── */
+footer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 1.5rem 3rem;
+}
+
+footer p {
+  font-size: 0.75rem;
+  color: #c5beb5;
+}

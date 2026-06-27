@@ -1,0 +1,133 @@
+/*
+ *  Base: reset, variables, typography, layout.
+ */
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg:           #f4efe8;
+  --surface:      #faf7f3;
+  --text:         #2c2825;
+  --muted:        #8a8278;
+  --accent:       #3d7068;
+  --accent-hover: #2a544d;
+  --border:       #e5ded5;
+  --note-bg:      #fdfbf7;
+  --radius:       4px;
+}
+
+html {
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg);
+}
+
+body {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+}
+
+main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 5rem 1.5rem 3rem;
+  position: relative;
+}
+
+section {
+  margin-bottom: 4rem;
+}
+
+/* Links */
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Section labels */
+.section-label {
+  font-size: 0.8rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.section-intro {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Tab panels */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+/* Focus */
+a:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .margin-note {
+    display: none;
+  }
+}
+
+@media (max-width: 520px) {
+  main {
+    padding: 3.5rem 1.25rem 2rem;
+    max-width: 100%;
+  }
+
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+
+  .hero .subtitle {
+    font-size: 0.95rem;
+  }
+
+  .achieve-header {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .achieve-sponsor {
+    text-align: left;
+  }
+
+  .links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vansh Sahay</title>
+  <meta name="description" content="Founding Engineer at BLOKCapital. I build Ethereum infrastructure, ZK tooling, and protocol-level things.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='26' font-size='26'>⬡</text></svg>">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="9bd3e368-3a7c-4bbb-b139-9db53fcb7a47"></script>
+</head>
+<body>
+
+  <aside id="margin-note" class="margin-note" aria-live="polite"></aside>
+
+  <main>
+    <section class="hero">
+      <h1>Vansh Sahay</h1>
+      <p class="title">Founding Engineer at <a href="https://blokcapital.io" target="_blank" rel="noopener">BLOKCapital</a></p>
+      <p class="subtitle">I build stuff with Ethereum, ZK and core protocol infrastructure<span class="cursor" aria-hidden="true">|</span></p>
+    </section>
+
+    <nav class="tabs" aria-label="Content sections">
+      <button class="tab active" data-tab="about">About</button>
+      <span class="tab-sep" aria-hidden="true">/</span>
+      <button class="tab" data-tab="achievements">Grants &amp; prizes</button>
+      <span class="tab-sep" aria-hidden="true">/</span>
+      <button class="tab" data-tab="work">Work</button>
+      <span class="tab-sep" aria-hidden="true">/</span>
+      <button class="tab" data-tab="writing">Writing</button>
+    </nav>
+
+    <!-- About ─────────────────────────────────── -->
+    <div class="tab-panel active" id="panel-about">
+      <section class="about">
+        <p class="section-label">On the record</p>
+        <p>
+          I spend most of my time working on the
+          <span class="annotated" data-note="The Ethereum Virtual Machine. It's the runtime that executes smart contracts on Ethereum and the execution target for every L2 rollup.">EVM</span>,
+          <span class="annotated" data-note="RISC-V (pronounced &ldquo;risk five&rdquo;) is an open standard instruction set architecture. If you can prove RISC-V execution in zero-knowledge, you can verify EVM computation succinctly. That&rsquo;s the idea behind zkVMs like riscVM.">RISC-V</span>, and
+          <span class="annotated" data-note="Zero-knowledge proofs let you prove a statement is true without revealing anything beyond that fact. In Ethereum they&rsquo;re used for rollups, privacy, and scaling.">ZK</span>.
+          I am currently a part of the
+          <span class="annotated" data-note="The Ethereum Protocol Fellowship onboards engineers into Ethereum core protocol development. Cohort seven is running now.">Ethereum Protocol Fellowship</span>
+          (cohort 7), where I'm working on Pureth Trustless Log Index.
+        </p>
+        <p>
+          I enjoy writing
+          <span class="annotated" data-note="Go powers a lot of Ethereum tooling: Geth, Kurtosis, and the L1 testing stack.">Go</span>,
+          <span class="annotated" data-note="Rust is behind Lighthouse (consensus client) and Reth (execution client), both of which I&rsquo;ve upstreamed changes to.">Rust</span>,
+          <span class="annotated" data-note="Lean is a dependently typed theorem prover. The Verified-zkEVM project uses it for their Clean DSL, which describes ZK circuits with formal guarantees.">Lean</span>.
+          . My work usually sits at the compilers, consensus, and cryptography layers.
+          I care about making Ethereum the <em>global finanical settlement layer</em>, and making infrastructure
+          that <em>anyone</em> can run, including in a browser tab.
+        </p>
+      </section>
+
+      <section class="currently">
+        <p class="section-label">Right now</p>
+        <p>
+          I'm a founding engineer at <strong>BLOKCapital</strong>, a
+          <span class="annotated" data-note="BLOKCapital is a non-custodial wealth management protocol on Arbitrum. Users plant a 'Garden' (a personal vault they control), follow curated indices or verified on-chain managers called Gardeners, and earn returns. Everything is verifiable on-chain, and you never give up your keys or custody of your funds.">decentralised wealth management protocol</span>
+          on Arbitrum. We let people grow assets through curated indices and verified on-chain
+          managers while keeping full self-custody. On the side I contribute to core Ethereum infra:
+          hacking on
+          <span class="annotated" data-note="Lighthouse is a production Ethereum consensus client in Rust. It runs the beacon chain spec and a big chunk of validators use it.">Lighthouse</span>
+          and
+          <span class="annotated" data-note="Reth is Paradigm&rsquo;s modular execution client, also Rust. It&rsquo;s fast, configurable, and designed to be used as a library.">Reth</span>,
+          and pushing forward on the
+          <span class="annotated" data-note="Clean is a circuit DSL written in Lean. It&rsquo;s the language behind Verified-zkEVM, a project to build a formally verified zkEVM where circuit correctness is mathematically guaranteed.">Clean</span> circuit DSL.
+        </p>
+      </section>
+    </div>
+
+    <!-- Achievements ──────────────────────────── -->
+    <div class="tab-panel" id="panel-achievements">
+      <section class="achievements">
+        <p class="section-label">Some stuff that happened along the journey so far</p>
+        <div class="achieve-list">
+          <div class="achieve-card">
+            <div class="achieve-header">
+              <span class="achieve-name">Ethereum Protocol Fellowship</span>
+              <span class="achieve-sponsor">Ethereum Foundation</span>
+            </div>
+            <p class="achieve-desc">
+              Cohort seven. Working on reducing dependency on the currently centralised parts of Ethereum.
+            </p>
+          </div>
+
+          <div class="achieve-card">
+            <div class="achieve-header">
+              <span class="achieve-name">Based Fellowship 3.0</span>
+              <span class="achieve-sponsor">Base India x Inner Circle</span>
+            </div>
+            <p class="achieve-desc">
+              One of <strong>30 fellows</strong> picked from across India.
+              Eleven days in Goa building on
+              <span class="annotated" data-note="Base is Coinbase&rsquo;s Ethereum L2, built on the OP Stack. One of the biggest rollups by TVL and a hub for onchain apps.">Base</span>
+              with project teams.
+            </p>
+          </div>
+
+          <div class="achieve-card">
+            <div class="achieve-header">
+              <span class="achieve-name">Uniswap Hook Incubator</span>
+              <span class="achieve-sponsor">Atrium × Uniswap Foundation</span>
+            </div>
+            <p class="achieve-desc">
+              Built <strong>Eirene</strong>, a dark pool DEX that blocks MEV and gives zero-slippage trades.
+              Won prizes from <strong>EigenLayer</strong> and the <strong>Uniswap Foundation</strong>.
+              Also ended up proceeding to the Hook Product Accelrator.
+            </p>
+          </div>
+
+          <div class="achieve-card">
+            <div class="achieve-header">
+              <span class="achieve-name">Base Builder Grant</span>
+              <span class="achieve-sponsor">Coinbase</span>
+            </div>
+            <p class="achieve-desc">
+              Received a grant from Coinbase for <strong>x402-open</strong>,
+              <span class="annotated" data-note="x402 is a protocol for HTTP-native payments using the HTTP 402 status code. This implementation is a decentralised payment gateway for per-request microtransactions.">decentralised facilitator for HTTP-native payments</span> on Base and Solana.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Work ──────────────────────────────────── -->
+    <div class="tab-panel" id="panel-work">
+      <section class="contributions">
+        <p class="section-label">Open-source contributions</p>
+        <div class="contrib-list">
+          <div class="contrib-card">
+            <div class="contrib-header">
+              <span class="contrib-name">Lighthouse</span>
+            </div>
+            <p class="contrib-desc">
+              Ethereum consensus client. Runs the beacon chain, keeps validators attesting.
+            </p>
+            <a href="https://github.com/sigp/lighthouse" target="_blank" rel="noopener" class="contrib-link">sigp/lighthouse →</a>
+          </div>
+          <div class="contrib-card">
+            <div class="contrib-header">
+              <span class="contrib-name">Reth</span>
+            </div>
+            <p class="contrib-desc">
+              Paradigm's modular execution client. Fast, embeddable, designed as a library.
+            </p>
+            <a href="https://github.com/paradigmxyz/reth" target="_blank" rel="noopener" class="contrib-link">paradigmxyz/reth →</a>
+          </div>
+          <div class="contrib-card">
+            <div class="contrib-header">
+              <span class="contrib-name">Clean</span>
+            </div>
+            <p class="contrib-desc">
+              A circuit DSL in Lean. It's the language behind Verified-zkEVM.
+            </p>
+            <a href="https://github.com/Verified-zkEVM/clean" target="_blank" rel="noopener" class="contrib-link">Verified-zkEVM/clean →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="projects">
+        <p class="section-label">Projects</p>
+        <p class="section-intro">Things I started and built. Click for details.</p>
+        <div class="project-list">
+
+          <details class="project-card">
+            <summary class="project-summary" tabindex="0">
+              <span class="project-name">riscVM</span>
+              <span class="project-desc">A zkVM that proves EVM execution using RISC-V.</span>
+              <span class="expand-hint" aria-hidden="true">&plus;</span>
+            </summary>
+            <div class="project-detail">
+              <p>
+                Compiles EVM bytecode to RISC-V instructions and proves the whole thing using SNARKS.
+                The EVM is stack-based, RISC-V is register-based. If you can prove one on the other,
+                any RISC-V ZK prover can verify Ethereum transactions.
+              </p>
+              <a href="https://github.com/VanshSahay/riscVM" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary" tabindex="0">
+              <span class="project-name">x402-open</span>
+              <span class="project-desc">Decentralised HTTP-native payments using the 402 status code.</span>
+              <span class="expand-hint" aria-hidden="true">&plus;</span>
+            </summary>
+            <div class="project-detail">
+              <p>
+                <span class="annotated" data-note="HTTP 402 is a reserved status code that was meant for digital payments. x402 revives it for web3: services return 402, clients pay, content unlocks.">HTTP 402</span>
+                was reserved for digital payments but nobody ever used it. x402 changes that.
+                This is a decentralised payment gateway. Per-request microtransactions, no central
+                processor. Backed by a <strong>Base Builder Grant</strong> from Coinbase.
+              </p>
+              <a href="https://github.com/VanshSahay/x402-open" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary" tabindex="0">
+              <span class="project-name">lumen</span>
+              <span class="project-desc">A trustless Ethereum light client. Runs in your browser.</span>
+              <span class="expand-hint" aria-hidden="true">&plus;</span>
+            </summary>
+            <div class="project-detail">
+              <p>
+                Verifies the Ethereum beacon chain entirely in the browser. Compiles Rust consensus logic to WebAssembly and follows
+                the sync committee to check block headers. You open a tab and it should just work.
+              </p>
+              <a href="https://github.com/VanshSahay/lumen" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary" tabindex="0">
+              <span class="project-name">Eirene</span>
+              <span class="project-desc">A dark pool DEX. Blocks MEV, gives zero-slippage trades.</span>
+              <span class="expand-hint" aria-hidden="true">&plus;</span>
+            </summary>
+            <div class="project-detail">
+              <p>
+                Built during the Uniswap Hook Incubator. Orders go through a dark pool, details hidden
+                until settlement. Flashbots handles MEV protection. EigenLayer AVS handles security.
+                Deployed on Sepolia. Won the UHI capstone and the Hookathon.
+              </p>
+              <a href="https://github.com/VanshSahay/FrontrunThis" target="_blank" rel="noopener" class="project-link">GitHub →</a>
+            </div>
+          </details>
+
+          <details class="project-card">
+            <summary class="project-summary" tabindex="0">
+              <span class="project-name">Flowly</span>
+              <span class="project-desc">Permanent automation workflows through natural language on Arweave.</span>
+              <span class="expand-hint" aria-hidden="true">&plus;</span>
+            </summary>
+            <div class="project-detail">
+              <p>
+                Triggers workflows based on Arweave and AO network events. Backed by an AR.IO
+                Foundation grant. Hooks into Permagate for event notifications like name expiry
+                alerts and gateway status.
+              </p>
+              <a href="https://useflowly.xyz/" target="_blank" rel="noopener" class="project-link">Website →</a>
+            </div>
+          </details>
+        </div>
+      </section>
+    </div>
+
+    <!-- Writing ────────────────────────────────── -->
+    <div class="tab-panel" id="panel-writing">
+      <section class="writing">
+        <p class="section-label">Writing</p>
+        <p class="section-intro">Notes, articles, and half-formed thoughts on Ethereum, ZK, and protocol engineering.</p>
+        <div class="writing-list" id="writing-list">
+          <!-- Populated by JS from writing/manifest.json -->
+        </div>
+        <div class="writing-article" id="writing-article" style="display:none">
+          <button class="writing-back" id="writing-back">← back</button>
+          <article class="article-content" id="article-content">
+            <!-- Rendered markdown goes here -->
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section class="connect">
+      <p class="section-label">Elsewhere</p>
+      <ul class="links">
+        <li><a href="https://github.com/VanshSahay" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://x.com/vansh_sahay" target="_blank" rel="noopener">X</a></li>
+        <li><a href="https://www.linkedin.com/in/vanshsahay" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Vansh Sahay</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/writing.js"></script>
+</body>
+</html>
